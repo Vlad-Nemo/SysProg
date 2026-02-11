@@ -1,0 +1,140 @@
+Часть 1.
+1. Команда: echo $$ >> answer.txt
+Вывод:
+2605
+
+2. Команда: ls -d /proc >> answer.txt
+Вывод: 
+/proc
+
+3. Команда: ls /proc/$$ >> answer.txt
+Вывод:
+arch_status
+attr
+autogroup
+auxv
+cgroup
+clear_refs
+cmdline
+comm
+coredump_filter
+cpu_resctrl_groups
+cpuset
+cwd
+environ
+exe
+fd
+fdinfo
+gid_map
+io
+ksm_merging_pages
+ksm_stat
+latency
+limits
+loginuid
+map_files
+maps
+mem
+mountinfo
+mounts
+mountstats
+net
+ns
+numa_maps
+oom_adj
+oom_score
+oom_score_adj
+pagemap
+patch_state
+personality
+projid_map
+root
+sched
+schedstat
+sessionid
+setgroups
+smaps
+smaps_rollup
+stack
+stat
+statm
+status
+syscall
+task
+timens_offsets
+timers
+timerslack_ns
+uid_map
+wchan
+
+4. Команда: ls -l /proc/$$/fd >> answer.txt
+Вывод: 
+total 0
+lrwx------ 1 codespace codespace 64 Feb 11 07:06 0 -> /dev/pts/0
+lrwx------ 1 codespace codespace 64 Feb 11 07:06 1 -> /dev/pts/0
+lrwx------ 1 codespace codespace 64 Feb 11 07:06 2 -> /dev/pts/0
+lrwx------ 1 codespace codespace 64 Feb 11 07:06 255 -> /dev/pts/0
+l-wx------ 1 codespace codespace 64 Feb 11 07:06 6 -> /dev/null
+
+Ответ на вопрос:
+0 - stdin (стандартный ввод)
+1 - stdout (стандартный вывод)
+2 - stderr (стандартный вывод ошибок)
+
+Часть 2.
+1. Команда: echo "privet!" >> answer.txt
+Вывод: 
+privet!
+
+2. Команда: ls net.txt 2>> answer.txt
+Вывод:
+ls: cannot access 'net.txt': No such file or directory
+
+3. Команда: ls test.txt net.txt >> answer.txt 2>> error.txt
+Вывод:
+test.txt
+
+4. Команда: cat error.txt >> answer.txt
+Вывод:
+ls: cannot access 'net.txt': No such file or directory
+
+Ответ на вопрос:
+Что бы можно было обрабатывать полезные данные отдельно от диагностических сообщений и ошибок.
+
+Часть 3.
+
+1. Команда: gcc file_demo.c
+./a.out
+cat myfile.txt >> answer.txt
+Вывод:
+Hello, syspem programming!
+
+Ответ на вопрос:
+Права доступа 644:
+6 (rw-) - Владелец может читать и писать
+4 (r--) - Группа может только читать
+4 (r--) - Остальные могут только читать
+
+Часть 4.
+
+1. Команда: gcc main.c filelib.c -o app
+./app 
+cat log.txt >> answer.txt 
+Вывод:
+Start!
+Succes
+
+
+Часть 5.
+
+Команда: cat log.txt >> answer.txt 
+Вывод:
+Start!
+Succes
+
+Часть 6.
+
+Команда: 
+make run >> out.txt
+make run 2>> err.txt
+make run >> all.txt 2>> all.txt
